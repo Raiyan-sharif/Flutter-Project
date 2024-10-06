@@ -49,6 +49,7 @@ class _LandingPageWebState extends State<LandingPageWeb> {
               Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
                   decoration: BoxDecoration(
@@ -65,7 +66,32 @@ class _LandingPageWebState extends State<LandingPageWeb> {
                   ),
                 ),
                 SizedBox(height: 15,),
-                SansBold("Raiyan Sharif", 55.0,)
+                SansBold("Raiyan Sharif", 55.0,),
+                Sans("iOS | Odoo | Fast API | Flutter Developer", 30.0),
+                SizedBox(height: 15.0,),
+                Row(
+                  children: [
+                    Icon(Icons.email,),
+                    SizedBox(width: 20,),
+                    Sans("raiyan.sharif.1234@gmail.com", 15.0),
+                  ],
+                ),
+                SizedBox(height: 10.0,),
+                Row(
+                  children: [
+                    Icon(Icons.call,),
+                    SizedBox(width: 20,),
+                    Sans("+8801615575290", 15.0),
+                  ],
+                ),
+                SizedBox(height: 10.0,),
+                Row(
+                  children: [
+                    Icon(Icons.location_pin,),
+                    SizedBox(width: 20,),
+                    Sans("Mirpur, Dhaka, Bangladsh", 15.0),
+                  ],
+                ),
               ],
             ),
             CircleAvatar(
@@ -83,6 +109,18 @@ class _LandingPageWebState extends State<LandingPageWeb> {
             ),
           ]),
         ),
+
+        // Second Page
+        Container(
+          height: heightDevice/1.5,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SansBold("About me", 40.0,)
+            ],
+          ),
+        )
       ]),
     );
   }
