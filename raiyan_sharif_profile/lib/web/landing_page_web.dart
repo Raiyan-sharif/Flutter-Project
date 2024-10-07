@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:url_launcher/url_launcher.dart';
 import '../components.dart';
 
 class LandingPageWeb extends StatefulWidget {
@@ -10,6 +12,21 @@ class LandingPageWeb extends StatefulWidget {
 }
 
 class _LandingPageWebState extends State<LandingPageWeb> {
+  urlLauncher(String imagePath, String uri){
+    return IconButton(
+      icon: SvgPicture.asset(
+        imagePath,
+        // colorFilter: ColorFilter.mode(Colors.black, BlendMode.srcIn),
+        semanticsLabel: 'GitHub',
+        width: 35.0,
+      ),
+      onPressed: () async {
+        await launchUrl(Uri.parse(uri));
+
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     var heightDevice = MediaQuery.of(context).size.height;
@@ -18,9 +35,34 @@ class _LandingPageWebState extends State<LandingPageWeb> {
       drawer: Drawer(
         backgroundColor: Colors.white,
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.centergit ,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-
+            CircleAvatar(
+              radius: 72.0,
+              backgroundColor: Colors.tealAccent,
+              child: CircleAvatar(
+                radius: 70.0,
+                backgroundColor: Colors.white,
+                backgroundImage: AssetImage("assets/raiyan_pic.jpeg"),
+              ),
+            ),
+            SizedBox(
+              height: 15.0,
+            ),
+            SansBold(
+              "Raiyan Sharif",
+              30.0,
+            ),
+            SizedBox(
+              height: 15.0,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                urlLauncher("assets/github.svg", "https://github.com/Raiyan-sharif"),
+                urlLauncher("assets/linkedin.svg", "https://www.linkedin.com/in/raiyan-sharif-0a18a2b3"),
+              ],
+            )
           ],
         ),
       ),
@@ -266,9 +308,20 @@ class _LandingPageWebState extends State<LandingPageWeb> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  AnimatedCardWeb(imagePath: "assets/webL.png", text: "Web Development",),
-                  AnimatedCardWeb(imagePath: "assets/app.png", text: "App Development", fit: BoxFit.contain, reverse: true,),
-                  AnimatedCardWeb(imagePath: "assets/firebase.png", text: "Back-end Development",),
+                  AnimatedCardWeb(
+                    imagePath: "assets/webL.png",
+                    text: "Web Development",
+                  ),
+                  AnimatedCardWeb(
+                    imagePath: "assets/app.png",
+                    text: "App Development",
+                    fit: BoxFit.contain,
+                    reverse: true,
+                  ),
+                  AnimatedCardWeb(
+                    imagePath: "assets/firebase.png",
+                    text: "Back-end Development",
+                  ),
                 ],
               )
             ],
