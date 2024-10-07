@@ -65,30 +65,53 @@ class _LandingPageWebState extends State<LandingPageWeb> {
                     15,
                   ),
                 ),
-                SizedBox(height: 15,),
-                SansBold("Raiyan Sharif", 55.0,),
+                SizedBox(
+                  height: 15,
+                ),
+                SansBold(
+                  "Raiyan Sharif",
+                  55.0,
+                ),
                 Sans("iOS | Odoo | Fast API | Flutter Developer", 30.0),
-                SizedBox(height: 15.0,),
+                SizedBox(
+                  height: 15.0,
+                ),
                 Row(
                   children: [
-                    Icon(Icons.email,),
-                    SizedBox(width: 20,),
+                    Icon(
+                      Icons.email,
+                    ),
+                    SizedBox(
+                      width: 20,
+                    ),
                     Sans("raiyan.sharif.1234@gmail.com", 15.0),
                   ],
                 ),
-                SizedBox(height: 10.0,),
+                SizedBox(
+                  height: 10.0,
+                ),
                 Row(
                   children: [
-                    Icon(Icons.call,),
-                    SizedBox(width: 20,),
+                    Icon(
+                      Icons.call,
+                    ),
+                    SizedBox(
+                      width: 20,
+                    ),
                     Sans("+8801615575290", 15.0),
                   ],
                 ),
-                SizedBox(height: 10.0,),
+                SizedBox(
+                  height: 10.0,
+                ),
                 Row(
                   children: [
-                    Icon(Icons.location_pin,),
-                    SizedBox(width: 20,),
+                    Icon(
+                      Icons.location_pin,
+                    ),
+                    SizedBox(
+                      width: 20,
+                    ),
                     Sans("Mirpur, Dhaka, Bangladsh", 15.0),
                   ],
                 ),
@@ -112,14 +135,112 @@ class _LandingPageWebState extends State<LandingPageWeb> {
 
         // Second Page
         Container(
-          height: heightDevice/1.5,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SansBold("About me", 40.0,)
-            ],
-          ),
+          height: heightDevice / 1.5,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+            Image.asset("assets/web.jpg", height: heightDevice/1.7,),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SansBold(
+                  "About me",
+                  40.0,
+                ),
+                SizedBox(
+                  height: 15,
+                ),
+                Sans(
+                  "Hello I am Raiyan Sharif Specialized on iOS, Flutter and Python",
+                  15,
+                ),
+                Sans("I strive to ensure astounding performance with state of",
+                    15),
+                Sans("the art security of Anroid, iOS, Web,", 15),
+                SizedBox(
+                  height: 10,
+                ),
+                Row(
+                  children: [
+                    Container(
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                          color: Colors.tealAccent,
+                          style: BorderStyle.solid,
+                          width: 2.0,
+                        ),
+                        borderRadius: BorderRadius.circular(5.0),
+                      ),
+                      padding: EdgeInsets.all(7.0),
+                      child: Sans(
+                        "iOS",
+                        15.0,
+                      ),
+                    ),
+                    SizedBox(
+                      width: 7.0,
+                    ),
+                    Container(
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                          color: Colors.tealAccent,
+                          style: BorderStyle.solid,
+                          width: 2.0,
+                        ),
+                        borderRadius: BorderRadius.circular(5.0),
+                      ),
+                      padding: EdgeInsets.all(7.0),
+                      child: Sans(
+                        "Flutter",
+                        15.0,
+                      ),
+                    ),
+                    SizedBox(
+                      width: 7.0,
+                    ),
+                    Container(
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                          color: Colors.tealAccent,
+                          style: BorderStyle.solid,
+                          width: 2.0,
+                        ),
+                        borderRadius: BorderRadius.circular(5.0),
+                      ),
+                      padding: EdgeInsets.all(7.0),
+                      child: Sans(
+                        "Odoo",
+                        15.0,
+                      ),
+                    ),
+                    SizedBox(
+                      width: 7.0,
+                    ),
+                    Container(
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                          color: Colors.tealAccent,
+                          style: BorderStyle.solid,
+                          width: 2.0,
+                        ),
+                        borderRadius: BorderRadius.circular(5.0),
+                      ),
+                      padding: EdgeInsets.all(7.0),
+                      child: Sans(
+                        "Fast API",
+                        15.0,
+                      ),
+                    ),
+                    SizedBox(
+                      width: 7.0,
+                    ),
+                  ],
+                )
+              ],
+            ),
+          ]),
         )
       ]),
     );

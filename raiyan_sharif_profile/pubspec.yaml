@@ -66,6 +66,7 @@ flutter:
   assets:
     - assets/raiyan_pic.jpeg
     - assets/raiyan_circle.png
+    - assets/web.jpg
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
