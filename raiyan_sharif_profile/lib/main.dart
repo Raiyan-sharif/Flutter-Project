@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:raiyan_sharif_profile/mobile/landing_page_mobile.dart';
-import 'package:raiyan_sharif_profile/web/landing_page_web.dart';
+import 'package:raiyan_sharif_profile/routes.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,15 +11,18 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: LayoutBuilder(
-        builder: (context, constrains) {
-          if (constrains.maxWidth > 800) {
-            return LandingPageWeb();
-          } else {
-            return LandingPageMobile();
-          }
-        },
-      ),
+      debugShowCheckedModeBanner: false,
+      onGenerateRoute: (settings) => Routes.generateRoute(settings),
+      initialRoute: '/',
+      // home: LayoutBuilder(
+      //   builder: (context, constrains) {
+      //     if (constrains.maxWidth > 800) {
+      //       return LandingPageWeb();
+      //     } else {
+      //       return LandingPageMobile();
+      //     }
+      //   },
+      // ),
     );
   }
 }
