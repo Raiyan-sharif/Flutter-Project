@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:raiyan_sharif_profile/components.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -15,6 +16,7 @@ class _LandingPageMobileState extends State<LandingPageMobile> {
   Widget build(BuildContext context) {
     var widthDevice = MediaQuery.of(context).size.width;
     return Scaffold(
+      extendBodyBehindAppBar: true,
       backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
@@ -122,7 +124,42 @@ class _LandingPageMobileState extends State<LandingPageMobile> {
                 )
               ],
             ),
-          )
+          ),
+          SizedBox(height: 90,),
+          //About me - Second Section
+          
+          Padding(padding: EdgeInsets.only(left: 20.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SansBold("About me", 35.0,),
+                Sans("Hello! I'm Raiyan Sharif I specialize in iOS, Flutter and Python development", 15.0,),
+                Sans("I strive to ensure astounding performance with state of", 15.0,),
+                Sans("the art security for iOS, Flutter and Python", 15.0,),
+                SizedBox(height: 10.0,),
+                Wrap(
+                  spacing: 7.0,
+                  runSpacing: 7.0,
+                  children: [
+                    Container(
+                      decoration: BoxDecoration(
+                        border: Border.all(color: Colors.tealAccent, style: BorderStyle.solid, width: 2.0),
+                        borderRadius: BorderRadius.circular(5.0),),
+                      padding: EdgeInsets.all(7.0),
+                      child: Text(
+                        "iOS | Flutter | Python",
+                        style: GoogleFonts.openSans(fontSize: 15.0),
+                      ),
+                    ),
+                  ],
+
+                )
+
+              ],
+            ),
+          ),
+          
         ],
       ),
     );
