@@ -4,7 +4,8 @@ import 'package:google_fonts/google_fonts.dart';
 
 class TabsWeb extends StatefulWidget {
   final title;
-  const TabsWeb(this.title, {super.key});
+  final route;
+  const TabsWeb({super.key,@required this.title, @required this.route});
 
   @override
   State<TabsWeb> createState() => _TabsWebState();
@@ -14,38 +15,44 @@ class _TabsWebState extends State<TabsWeb> {
   bool isSelected = false;
   @override
   Widget build(BuildContext context) {
-    return MouseRegion(
-      onEnter: (_) {
-        setState(() {
-          isSelected = true;
-        });
+    return GestureDetector(
+      onTap: (){
+        Navigator.of(context).pushNamed(widget.route);
       },
-      onExit: (_) {
-        setState(() {
-          isSelected = false;
-        });
-      },
-      child: AnimatedDefaultTextStyle(
-        duration: const Duration(microseconds: 100),
-        curve: Curves.elasticIn,
-        style: isSelected
-            ? GoogleFonts.roboto(
-                shadows: [
-                    const Shadow(
-                      color: Colors.black,
-                      offset: Offset(0, -8),
-                    )
-                  ],
-                color: Colors.transparent,
-                fontSize: 25.0,
-                decoration: TextDecoration.underline,
-                decorationThickness: 2.0,
-                decorationColor: Colors.tealAccent)
-            : GoogleFonts.oswald(
-                color: Colors.black,
-                fontSize: 20.0,
-              ),
-        child: Text(widget.title),
+      child: MouseRegion(
+        onEnter: (_) {
+          setState(() {
+            isSelected = true;
+          });
+        },
+        onExit: (_) {
+          setState(() {
+            isSelected = false;
+          });
+        },
+        child: AnimatedDefaultTextStyle(
+          duration: const Duration(microseconds: 100),
+          curve: Curves.elasticIn,
+          style: isSelected
+              ? GoogleFonts.roboto(
+                  shadows: [
+                      const Shadow(
+                        color: Colors.black,
+                        offset: Offset(0, -8),
+                      )
+                    ],
+                  color: Colors.transparent,
+                  fontSize: 25.0,
+                  decoration: TextDecoration.underline,
+                  decorationThickness: 2.0,
+                  decorationColor: Colors.tealAccent)
+              : GoogleFonts.oswald(
+                  color: Colors.black,
+                  fontSize: 20.0,
+                ),
+          child: Text(widget.title),
+
+        ),
       ),
     );
   }
@@ -77,6 +84,7 @@ class _TabsMobileState extends State<TabsMobile> {
           color: Colors.white
         ),),
         onPressed: (){
+          Navigator.of(context).pushNamed(widget.route);
     });
   }
 }
@@ -116,13 +124,13 @@ class Sans extends StatelessWidget {
 }
 
 class TextForm extends StatelessWidget {
-  final heading;
+  final text;
   final width;
   final hintText;
   final maxLines;
   const TextForm(
       {super.key,
-      @required this.heading,
+      @required this.text,
       @required this.width,
       @required this.hintText,
       this.maxLines});
@@ -132,7 +140,7 @@ class TextForm extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Sans(heading, 16.0),
+        Sans(text, 16.0),
         SizedBox(
           height: 5.0,
         ),
@@ -179,23 +187,25 @@ class TextForm extends StatelessWidget {
   }
 }
 
-class AnimatedCardWeb extends StatefulWidget {
+class AnimatedCard extends StatefulWidget {
   final imagePath;
   final text;
   final fit;
   final reverse;
-  const AnimatedCardWeb(
+  final height;
+  final width;
+  const AnimatedCard(
       {super.key,
       @required this.imagePath,
       @required this.text,
       this.fit,
-      this.reverse});
+      this.reverse, this.height, this.width});
 
   @override
-  State<AnimatedCardWeb> createState() => _AnimatedCardWebState();
+  State<AnimatedCard> createState() => _AnimatedCardState();
 }
 
-class _AnimatedCardWebState extends State<AnimatedCardWeb>
+class _AnimatedCardState extends State<AnimatedCard>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller = AnimationController(
     vsync: this,
@@ -231,8 +241,8 @@ class _AnimatedCardWebState extends State<AnimatedCardWeb>
             children: [
               Image.asset(
                 widget.imagePath,
-                height: 200.0,
-                width: 200.0,
+                height: widget.height==null? 200.0: widget.height,
+                width: widget.width==null? 200.0: widget.width,
                 fit: widget.fit==null? null:widget.fit,
               ),
               SizedBox(
